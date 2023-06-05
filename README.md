@@ -1,7 +1,8 @@
 # mindat_api_test_GUI
-GUI implementation for the alpha implementation of OpenMindat's API. 
-
+Unofficial GUI implementation with tkinter for the Mindat API. 
 This repository is not officially associated with Mindat or OpenMindat. Official links here: 
+
+**Mindat API Documentation: https://api.mindat.org/schema/redoc/**
 
 **OpenMindat: Open and FAIR mineralogy data from the Mindat database** https://rmets.onlinelibrary.wiley.com/doi/10.1002/gdj3.204
 
@@ -9,7 +10,8 @@ This repository is not officially associated with Mindat or OpenMindat. Official
 
 
 
-### What is this repository?
+
+## What is this repository?
 
 An open-source effort to add a GUI using Tkinter. Hopefully it can work and be helpful ! 
 
