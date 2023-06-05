@@ -1,3 +1,30 @@
+############################
+
+## Documentation ##
+
+############################
+
+
+## Where to get an API key:
+
+# 1) Log in to Mindat.org, you need an authenticated account (ask Jolyon!)
+# 2) go to "My homepage"->"Edit my page"
+# 3) At the bottom of the page you will find "API Key - Your key:"
+
+
+#    best practice is not use API KEY directly in code,
+#    but store them in ENV variables, or files outside the project directory
+#    I'd like to implement this! 
+
+
+
+############################
+
+## Package Imports ##
+
+############################
+
+
 # aiohttp is the equivalent to requests, but async
 import aiohttp
 
@@ -7,12 +34,7 @@ import asyncio
 MINDAT_API_URL = "https://api.mindat.org"
 YOUR_API_KEY = ""       # you need to fill this in
 
-# Where to get an API key:
-# 1) Log in to Mindat.org, you need an authenticated account (ask Jolyon!)
-# 2) go to "My homepage"->"Edit my page"
-# 3) At the bottom of the page you will find "API Key - Your key:"
-# *  best practice is not use API KEY directly in code,
-#    but store them in ENV variables, or files outside the project directory
+
 
 headers = {'Authorization': 'Token '+YOUR_API_KEY, 'Accept':'application/json'}
 
