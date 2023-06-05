@@ -2,12 +2,17 @@
 Unofficial GUI implementation with tkinter for the Mindat API. 
 This repository is not officially associated with Mindat or OpenMindat. Official links here: 
 
-**Mindat API Documentation: https://api.mindat.org/schema/redoc/**
+**Mindat API Documentation: 
+https://api.mindat.org/schema/redoc/**
 
-**OpenMindat: Open and FAIR mineralogy data from the Mindat database** https://rmets.onlinelibrary.wiley.com/doi/10.1002/gdj3.204
+**OpenMindat: Open and FAIR mineralogy data from the Mindat database** 
+https://rmets.onlinelibrary.wiley.com/doi/10.1002/gdj3.204
 
-**A simple python example for the (alpha) version of the API. Requires an API key** https://github.com/jolyonralph/mindat_api_test
+**A simple python example for the (alpha) version of the API. Requires an API key** 
+https://github.com/jolyonralph/mindat_api_test
 
+**mindat_api_test** 
+https://github.com/MrHamel/mindat_api_test
 
 
 
