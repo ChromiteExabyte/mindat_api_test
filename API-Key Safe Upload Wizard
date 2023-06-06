@@ -1,0 +1,74 @@
+############################
+
+## Documentation ##
+
+############################
+
+# This is aiming to be an easy way to easily secure and store an API key for Mindat. 
+
+############################
+
+## Package Imports ##
+
+############################
+
+# GUI Related
+import tkinter as tk
+
+# Network Related
+import socket
+
+
+############################
+
+## Function Definitions ##
+
+############################
+
+# Gets the user's API
+def save_api_key():
+    api_key = entry.get()
+    
+
+# Checks if the mindat website is up
+def check_internet():
+    try:
+        socket.create_connection(("www.mindat.org", 80))
+        label.config(text="Connection with Mindat.org has been established.")
+    except OSError:
+        label.config(text="Connection with Mindat.org could not be established.")
+
+
+############################
+
+## The GUI Starts Up ##
+
+############################
+
+# Create a new Tkinter window
+window = tk.Tk()
+
+# Set the window title
+window.title("Mindat API Test")
+
+# Set the window size
+window.geometry("400x300")  # Width: 400 pixels, Height: 300 pixels
+
+# Add a label to the window
+label_text = "Enter your API key here:"
+label = tk.Label(window, text=label_text, pady=10)
+label.pack()
+
+# Create an Entry widget for the user input
+entry = tk.Entry(window)
+entry.pack()
+
+# Create a button to save the API key
+button = tk.Button(window, text="Save API Key", command=save_api_key)
+button.pack()
+
+# Check internet connectivity when the window is opened
+window.bind("<Map>", lambda event: check_internet())
+
+# Start the Tkinter event loop
+window.mainloop()
