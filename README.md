@@ -20,7 +20,14 @@ https://github.com/MrHamel/mindat_api_test
 
 An open-source effort to add a GUI using Tkinter. Hopefully it can work and be helpful ! 
 
+Right now, there is only a skeleton GUI around existing code for the API by Ryan Hamel. 
+
+A separate .py file has been created to handle uploading keys. 
+
+The original API test .py by Jolyon Ralph is in this repository. 
+
+
 
 ## Who is this repository by?
 
-ChromiteExabyte, a Canadian geology undergrad. I'm a huge fan of Mindat and the OpenMindat paper and would like to help.
+ChromiteExabyte, a Canadian geology undergrad. I'm a huge fan of Mindat and the OpenMindat paper and would like to help. T
