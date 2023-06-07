@@ -1,6 +1,8 @@
-# mindat_api_test_GUI
-Unofficial GUI implementation with tkinter for the Mindat API. 
-This repository is not officially associated with Mindat or OpenMindat. Official links here: 
+# 
+Unofficial attempt at GUI implementation with tkinter for the Mindat API and maybe some helpful aysnc snippets for further use. 
+
+
+This repository is not officially associated with Mindat or OpenMindat. The project is wonderful and complex.  Official links here: 
 
 **Mindat API Documentation: 
 https://api.mindat.org/schema/redoc/**
@@ -18,13 +20,13 @@ https://github.com/MrHamel/mindat_api_test
 
 ## What is this repository?
 
-An open-source effort to add a GUI using Tkinter. Hopefully it can work and be helpful ! 
+An open-source effort. Hopefully it can work and be helpful ! 
 
-Right now, there is only a skeleton GUI around existing code for the API by Ryan Hamel. 
+Right now, there is only a skeleton GUI around existing code. There are extra async functions added that I do not understand just yet. Most of the work there for the API bits are by Ryan Hamel. 
 
-A separate .py file has been created to handle uploading keys. 
+A separate .py file has been created to handle uploading keys. It does not work. 
 
-The original API test .py by Jolyon Ralph is in this repository. 
+The original API test .py by Jolyon Ralph is in this repository for the old Mindat server I believe. 
 
 
 
