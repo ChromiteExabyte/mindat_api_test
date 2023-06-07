@@ -1,0 +1,31 @@
+# Package Imports #
+import asyncio
+import httpx
+
+
+
+# main :) #
+async def main():
+
+
+
+    #making a simple GET request
+    r = httpx.get('https://httpbin.org/get')
+    print(r.status_code)
+    # this gives a 200 response from a website hopefuly
+
+    # making a POST request
+    r = httpx.post('https://httpbin.org/post', data={'key': 'value'})
+    #print(r.status_code)
+
+
+    # making a GET request but we're getting a JSON back !
+    r = httpx.get('https://api.github.com/events')
+    #print(r.json)
+    #r.json()
+    
+
+
+# code really starts here ! #
+asyncio.run(main())
+
