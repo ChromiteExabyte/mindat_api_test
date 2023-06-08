@@ -7,7 +7,7 @@ import httpx
 # variable definitions #
 
 
-api_key = "API_KEY_HERE_LATER"
+#api_key = "API_KEY_HERE_LATER"
 #headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'}
 
 # Need to find out what headers are / what they do
@@ -22,31 +22,56 @@ def get_request_test():
 
 
 
-def api_key_test():
+#def api_key_test():
 
     # the POST goes to the URL below
-    api_key_test_URL = "https://api.mindat.org/api-token-auth/" 
+    #api_key_test_URL = "https://api.mindat.org/api-token-auth/" 
 
      # Prompt the user for the API key, this is just a string that pops up in console 
-    print("Enter your API key: ")
+    #print("Enter your API key: ")
 
     # get the API key from the user, store as variable
-    api_key = input()
-
+   # api_key = input()
+#
     # create the headers for the POST request
-    headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'} # 
+   # headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'} # 
 
     # POST the API key to the URL
-    api_key_test_response = httpx.post(api_key_test_URL, headers=headers) # POST the API key to the URL
+   # api_key_test_response = httpx.post(api_key_test_URL, headers=headers) # POST the API key to the URL
 
     #see what happens :)
-    if api_key_test_response.status_code == 200:
-        print("API key is valid.")
-    else:
-        print("API key is invalid.")
-        print(api_key_test_response.status_code)
+   # if api_key_test_response.status_code == 200:
+   #     print("API key is valid.")
+   # else:
+      #  print("API key is invalid.")
+   #     print(api_key_test_response.status_code)
 
- 
+
+
+
+async def create_auth_token(username, password, api_key):
+    url = "https://api.mindat.org/api-token-auth/"
+    data = {"username": username, "password": password}
+    headers = {"Authorization": f"Token {api_key}"}
+
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(url, json=data, headers=headers)
+            if response.status_code == 200:
+                token = response.json().get("token")
+                print("Authentication token created! Great! :)", token)
+            else:
+                print("Failed to create auth token. Status code:", response.status_code)
+    except httpx.HTTPError as exc:
+        print("HTTP error occurred:", exc)
+    except Exception as exc:
+        print("An error occurred:", exc)
+
+        
+
+               
+
+
 
 
 def check_if_website_is_up():
@@ -63,9 +88,20 @@ def check_if_website_is_up():
 # main :) #
 async def main():
 
-    api_key_test()    
-    check_if_website_is_up()
+   # api_key_test()    
+   # check_if_website_is_up()
     
+    print("Enter your username: ")
+    username = input()
+    print("Enter your password: ")
+    password = input()
+
+    print("Please enter your API key: ")
+    api_key = input()
+
+
+    await create_auth_token(username, password, api_key)
+   # token = await create_auth_token()
 
 
 
