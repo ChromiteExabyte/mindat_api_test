@@ -4,22 +4,11 @@ import httpx
 
 
 
-# variable definitions #
-
-
-#api_key = "API_KEY_HERE_LATER"
-#headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'}
-
-# Need to find out what headers are / what they do
-
-
-
 # function definitions #
 def get_request_test():
     response = httpx.get('https://httpbin.org/get')
     print(response.status_code)
     print(response.text)
-
 
 
 #def api_key_test():
@@ -32,7 +21,7 @@ def get_request_test():
 
     # get the API key from the user, store as variable
    # api_key = input()
-#
+   
     # create the headers for the POST request
    # headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'} # 
 
@@ -47,25 +36,43 @@ def get_request_test():
    #     print(api_key_test_response.status_code)
 
 
-
-
 async def create_auth_token(username, password, api_key):
+    
+    #URL for the api token thing
     url = "https://api.mindat.org/api-token-auth/"
+    
+    # Stuff
     data = {"username": username, "password": password}
+    
+    # Headers (error lives here?)
     headers = {"Authorization": f"Token {api_key}"}
 
+    #try block because it might go bad
     try:
+    
+        #new client thing!
         async with httpx.AsyncClient() as client:
+            #reponse has 
             response = await client.post(url, json=data, headers=headers)
+            
+            # reponse code 200 is the good stuff
             if response.status_code == 200:
                 token = response.json().get("token")
                 print("Authentication token created! Great! :)", token)
+                
+            #the else condition is why the try block is a thing                
             else:
                 print("Failed to create auth token. Status code:", response.status_code)
+                
+   # place for error messages to be below here: 
+   
     except httpx.HTTPError as exc:
         print("HTTP error occurred:", exc)
+        # ^ HTTP error means that packets are sent to the website, but the packets sent were not good in some way 
+        
     except Exception as exc:
         print("An error occurred:", exc)
+        # ^ this error means that the code runs but something is wrong
 
         
 
@@ -91,21 +98,27 @@ async def main():
    # api_key_test()    
    # check_if_website_is_up()
     
+    
+    # User inputs for username, password, & API key
     print("Enter your username: ")
     username = input()
     print("Enter your password: ")
     password = input()
-
     print("Please enter your API key: ")
     api_key = input()
 
-
+    # pass the three variables into the 
+    # await it because there are errors if it doesn't have that keyword
+    
     await create_auth_token(username, password, api_key)
-   # token = await create_auth_token()
+  
+    #it might need a house to live in as a variable
+    # token = await create_auth_token(username, password, api_key)
+  
 
 
 
 
 
 # code really starts here ! #
-asyncio.run(main())
+asyncio.run(main()) #GOTO main 
