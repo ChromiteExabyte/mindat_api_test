@@ -4,28 +4,72 @@ import httpx
 
 
 
+# variable definitions #
+
+
+api_key = "API_KEY_HERE_LATER"
+#headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'}
+
+# Need to find out what headers are / what they do
+
+
+
+# function definitions #
+def get_request_test():
+    response = httpx.get('https://httpbin.org/get')
+    print(response.status_code)
+    print(response.text)
+
+
+
+def api_key_test():
+
+    # the POST goes to the URL below
+    api_key_test_URL = "https://api.mindat.org/api-token-auth/" 
+
+     # Prompt the user for the API key, this is just a string that pops up in console 
+    print("Enter your API key: ")
+
+    # get the API key from the user, store as variable
+    api_key = input()
+
+    # create the headers for the POST request
+    headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'} # 
+
+    # POST the API key to the URL
+    api_key_test_response = httpx.post(api_key_test_URL, headers=headers) # POST the API key to the URL
+
+    #see what happens :)
+    if api_key_test_response.status_code == 200:
+        print("API key is valid.")
+    else:
+        print("API key is invalid.")
+        print(api_key_test_response.status_code)
+
+ 
+
+
+def check_if_website_is_up():
+
+    #URL to check   
+    check_if_website_is_up_url = "https://api.mindat.org/"
+
+    # GET the URL
+    check_if_website_is_up_response = httpx.get(check_if_website_is_up_url)
+
+    print(check_if_website_is_up_response.status_code)
+
+
 # main :) #
 async def main():
 
-
-
-    #making a simple GET request
-    r = httpx.get('https://httpbin.org/get')
-    print(r.status_code)
-    # this gives a 200 response from a website hopefuly
-
-    # making a POST request
-    r = httpx.post('https://httpbin.org/post', data={'key': 'value'})
-    #print(r.status_code)
-
-
-    # making a GET request but we're getting a JSON back !
-    r = httpx.get('https://api.github.com/events')
-    #print(r.json)
-    #r.json()
+    api_key_test()    
+    check_if_website_is_up()
     
+
+
+
 
 
 # code really starts here ! #
 asyncio.run(main())
-
