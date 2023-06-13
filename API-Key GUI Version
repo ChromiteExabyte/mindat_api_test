@@ -2,7 +2,8 @@
 ## Documentation ##
 ############################
 
-# This is aiming to be an easy way to easily secure and store an API key for Mindat. 
+
+
 
 ############################
 ## Package Imports ##
@@ -19,37 +20,6 @@ import os
 ## Function Definitions ##
 ############################
 
-# Function to save the API key
-def save_api_key():
-    api_key = entry.get()  # Get the API key from the Entry widget
-
-    # Prompt the user to select a file path for saving the API key
-    root = tk.Tk()
-    root.withdraw()
-    file_path = filedialog.asksaveasfilename(defaultextension=".txt")
-
-    if not file_path:
-        print("File path not provided. API key not saved.")
-        return
-
-    # Check if the file already exists
-    if os.path.exists(file_path):
-        print("API key already exists. Overwriting...")
-
-    # Open the file in write mode and save the API key
-    with open(file_path, "w") as file:
-        file.write(api_key)
-
-    print("API key saved.")
-    
-
-# Checks if the mindat website is up
-def check_internet():
-    try:
-        socket.create_connection(("www.mindat.org", 80))
-        label.config(text="Connection with Mindat.org has been established.")
-    except OSError:
-        label.config(text="Connection with Mindat.org could not be established.")
 
 
 ############################
