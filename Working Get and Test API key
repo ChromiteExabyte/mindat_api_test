@@ -1,0 +1,140 @@
+###################################
+#### Package Import Statements #### 
+###################################
+
+import httpx
+import asyncio
+
+
+
+
+
+
+# there are async functions so this is not formatted nicely 
+
+
+#########
+# method#
+###############################
+#### api_token_auth_create ####
+###############################
+
+# username and password are passed in
+# API key is passed out
+
+def api_token_auth_create(username, password):
+
+    # Define the payload
+    payload = {
+        "username": username,
+        "password": password
+    }
+
+    # Define the endpoint URL
+    endpoint_url = "https://api.mindat.org/api-token-auth/"
+
+    # Make a POST request to authenticate and obtain the API token
+    response = client.post(endpoint_url, json=payload)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Status code 200 is good :)
+
+        # The api-key is in the json response and we need to get that out, assign it to a variable
+        token = response.json().get("token")
+        
+        #print(token)
+        return token
+    else:
+        # Handle authentication failure
+        print("Authentication failed, darn. Please get the api key from the website.")
+        return None
+
+
+
+# method, not implemented#
+########################
+#### ASYNC send_req ####
+########################
+    
+##def send_req():
+##    
+## 
+##        response = await client.get(MINDAT_API_URL + "items/")
+##        print(response)  
+##        print(await response.json())      
+
+
+################
+################
+#### main() ####     
+################
+################
+        
+async def main():
+
+        print("Hello World! Hello working api-key authentication!")
+        client.close()
+
+
+    #this code below isn't active but I like it 
+
+
+##    # Call the authentication function
+##    token = api_token_auth_create(username, password)
+##
+##    if token:
+##        # :)
+##        print("Nice, it works!")
+##        client.close()
+##    else:
+##        # :(
+##        print("It doesn't work, oof.")
+##        client.close()
+
+
+###################################
+##### Code Starts Running Here ####
+###################################        
+###################################
+        
+############################
+#quick variable declaration#
+############################
+
+# Set the URL for the mindat API
+mindat_url = "https://api.mindat.org/"
+
+# Opening up a new httpx client
+client = httpx.Client()
+
+
+########################
+# getting user auth in #
+######################## 
+
+print('If you have your Mindat API key ready, type "API" and press enter to authenticate.')
+choice = input('Otherwise, enter anything else to authenticate with your username and password: ')
+print('')
+
+if choice == "API":
+    # Input API key
+    api_key = input("Please enter your Mindat API key: ")
+
+    # Set the API key as a header
+    headers = {'Authorization': 'Token ' + api_key}
+else:
+    # Input username and password
+    username = input("Please enter your username: ")
+    password = input("Please enter your password: ")
+    token = api_token_auth_create(username, password)
+
+
+#######################
+# Run the main function
+
+asyncio.run(main())
+
+
+###################################
+###################################
