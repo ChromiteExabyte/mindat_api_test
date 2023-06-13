@@ -1,124 +1,54 @@
-# Package Imports #
-import asyncio
 import httpx
+import asyncio
 
+def api_token_auth_create(username, password):
+    # Define the payload
+    payload = {
+        "username": username,
+        "password": password
+    }
 
+    # Define the base URL of the API
+    base_url = "https://api.mindat.org/"
 
-# function definitions #
-def get_request_test():
-    response = httpx.get('https://httpbin.org/get')
-    print(response.status_code)
-    print(response.text)
+    # Define the endpoint URL
+    endpoint_url = "https://api.mindat.org/api-token-auth/"
 
+    # Make a POST request to authenticate and obtain the API token
+    response = httpx.post(endpoint_url, json=payload)
 
-#def api_key_test():
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Extract the API token from the response
+        token = response.json().get("token")
+        return token
+    else:
+        # Handle authentication failure
+        print("Authentication failed")
+        return None
 
-    # the POST goes to the URL below
-    #api_key_test_URL = "https://api.mindat.org/api-token-auth/" 
-
-     # Prompt the user for the API key, this is just a string that pops up in console 
-    #print("Enter your API key: ")
-
-    # get the API key from the user, store as variable
-   # api_key = input()
-   
-    # create the headers for the POST request
-   # headers = {'Authorization': 'Token '+ api_key, 'Accept':'application/json'} # 
-
-    # POST the API key to the URL
-   # api_key_test_response = httpx.post(api_key_test_URL, headers=headers) # POST the API key to the URL
-
-    #see what happens :)
-   # if api_key_test_response.status_code == 200:
-   #     print("API key is valid.")
-   # else:
-      #  print("API key is invalid.")
-   #     print(api_key_test_response.status_code)
-
-
-async def create_auth_token(username, password, api_key):
-    
-    #URL for the api token thing
-    url = "https://api.mindat.org/api-token-auth/"
-    
-    # Stuff
-    data = {"username": username, "password": password}
-    
-    # Headers (error lives here?)
-    headers = {"Authorization": f"Token {api_key}"}
-
-    #try block because it might go bad
-    try:
-    
-        #new client thing!
-        async with httpx.AsyncClient() as client:
-            #reponse has 
-            response = await client.post(url, json=data, headers=headers)
-            
-            # reponse code 200 is the good stuff
-            if response.status_code == 200:
-                token = response.json().get("token")
-                print("Authentication token created! Great! :)", token)
-                
-            #the else condition is why the try block is a thing                
-            else:
-                print("Failed to create auth token. Status code:", response.status_code)
-                
-   # place for error messages to be below here: 
-   
-    except httpx.HTTPError as exc:
-        print("HTTP error occurred:", exc)
-        # ^ HTTP error means that packets are sent to the website, but the packets sent were not good in some way 
-        
-    except Exception as exc:
-        print("An error occurred:", exc)
-        # ^ this error means that the code runs but something is wrong
-
-        
-
-               
-
-
-
-
-def check_if_website_is_up():
-
-    #URL to check   
-    check_if_website_is_up_url = "https://api.mindat.org/"
-
-    # GET the URL
-    check_if_website_is_up_response = httpx.get(check_if_website_is_up_url)
-
-    print(check_if_website_is_up_response.status_code)
-
-
-# main :) #
 async def main():
+    # Input API key
+    api_key = input("Please enter your Mindat API key: ")
 
-   # api_key_test()    
-   # check_if_website_is_up()
-    
-    
-    # User inputs for username, password, & API key
-    print("Enter your username: ")
-    username = input()
-    print("Enter your password: ")
-    password = input()
-    print("Please enter your API key: ")
-    api_key = input()
+    # Set the API key as a header
+    headers = {'Authorization': 'Token ' + api_key}
 
-    # pass the three variables into the 
-    # await it because there are errors if it doesn't have that keyword
-    
-    await create_auth_token(username, password, api_key)
-  
-    #it might need a house to live in as a variable
-    # token = await create_auth_token(username, password, api_key)
-  
+    # Input username and password
+    username = input("Please enter your username: ")
+    password = input("Please enter your password: ")
 
+    # Call the authentication function
+    token = api_token_auth_create(username, password)
 
+    if token:
+        
+        # :)
+        print("Nice, it works!")
+        
+    else:
+        # :(
+        print("It doesn't work, oof.")
 
-
-
-# code really starts here ! #
-asyncio.run(main()) #GOTO main 
+# Run the main function
+asyncio.run(main())
