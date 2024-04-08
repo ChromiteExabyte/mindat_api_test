@@ -1,10 +1,26 @@
-# API Endpoints
+# OpenMindat Informal Documentation for users and developers
+
+
+This markdown page aspires to be helpful for users and developers of the OpenMindat project. Please see the official documentation for more. 
+
+
+
+
+## Figure 2 from the OpenMindat paper
+![gdj3204-fig-0002-m](https://github.com/ChromiteExabyte/mindat_api_test/assets/135404783/8b379e88-586f-420c-97c0-d7ab82862328)
+FIGURE 2
+`A conceptual map showing the major data components in Mindat, with more details on mineral species, mineral occurrence and locality.`
+
+
+
+
+## API Endpoints
 
 
 Official Documentation of the API is readable and downloadable here ---> https://api.mindat.org/schema/redoc/
 This is a human-written parsing of the specifics of the API implementation. It may be incorrect and is not part of the official OpenMindat implementation and research. 
 
-## /api-token-auth/
+### /api-token-auth/
 
 - `POST` referes to a HTTP request method.  
 - `https://api.mindat.org/api-token-auth/` is the target URL of this `POST` method.
@@ -37,7 +53,7 @@ This is a human-written parsing of the specifics of the API implementation. It m
   - `post` is what is allowed for this here and I am not sure if this endpoint has any
   - `AuthToken[]` is important and appears elsewhere in the docs. 
 
-## Other
+### Other
 /countries/
   - get
 /countries/{id}/
