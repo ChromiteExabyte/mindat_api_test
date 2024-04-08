@@ -1,4 +1,4 @@
-# Research & Journal Articles
+# Research & Journal Articles, and Completed Packages
 ## **OpenMindat: Open and FAIR mineralogy data from the Mindat database** 
 
 - Published in Geoscience Data Journal Volume 11, Issue 1 p. 94-104
@@ -6,7 +6,6 @@
 - Author(s): Xiaogang Ma, Jolyon Ralph, Jiyin Zhang, Xiang Que, Anirudh Prabhu, Shaunna M. Morrison, Robert M. Hazen, Lesley Wyborn, Kerstin Lehnert
 - Open Access Paper; an inspiring research initiative. 
 
-# OpenMindat Implementations
 ## OpenMindat R Package
 
 - "An R package for querying and accessing open data from the Mindat API."
@@ -21,15 +20,18 @@
 - "This is a test version of the OpenMindat Python package, designed to facilitate querying and retrieving data on minerals and geomaterials from the Mindat API."
 - https://github.com/ChuBL/OpenMindat
 - Python Programming Language
-- 
+- Author(s):
+- https://github.com/ChuBL/OpenMindat/wiki
 
-## The API now running on Mindat.org 
+## Directly Accessing the Mindat.org server through OpenMindat's API
 
 - Mindat.org's server runs PHP to a MySQL database (presumably w/ Apache Web Server & Linux for a "LAMP" configuration).
 - Using the API (Application Program Interface), mineralogy data can be directly accessed ! The data and accessibility of the data is much improved through the OpenMindat research (see above). 
 - Source: https://api.mindat.org/schema/redoc/
-- Author(s): 
-- .YAML download available, OpenAPI Documentation formats the API through the YAML markup. 
+- Author(s): Jiyin Zhang, CoryIC
+- .YAML download available, OpenAPI Documentation formats the API through the YAML markup.
+  #### "How do I get my API Key?" Article on Mindat.org
+  https://www.mindat.org/a/how_to_get_my_mindat_api_key
 
 # OpenMindat Usage on GitHub.com
 ## Mindat Data Collector
@@ -57,6 +59,12 @@ https://github.com/ChuBL/How-to-Use-Mindat-API
 - Source: https://github.com/MrHamel/mindat_api_test
 - Author(s): Ryan Hamel
 - Python Programming Language
+
+## An implementation of Mindat.org web-scraping in Python prior to the OpenMindat 
+
+https://github.com/MelorGloom/Crystal-Info-Scrapper
+
+
 
 
 # What is this repository here?
