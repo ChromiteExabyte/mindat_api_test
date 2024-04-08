@@ -1,16 +1,13 @@
 # Research & Journal Articles, and Completed Packages
 ## **OpenMindat: Open and FAIR mineralogy data from the Mindat database** 
-
-- Published in Geoscience Data Journal Volume 11, Issue 1 p. 94-104
+#### Author(s): Xiaogang Ma, Jolyon Ralph, Jiyin Zhang, Xiang Que, Anirudh Prabhu, Shaunna M. Morrison, Robert M. Hazen, Lesley Wyborn, Kerstin Lehnert
+#### Published in Geoscience Data Journal Volume 11, Issue 1 p. 94-104
 - https://rmets.onlinelibrary.wiley.com/doi/10.1002/gdj3.204 
-- Author(s): Xiaogang Ma, Jolyon Ralph, Jiyin Zhang, Xiang Que, Anirudh Prabhu, Shaunna M. Morrison, Robert M. Hazen, Lesley Wyborn, Kerstin Lehnert
-- Open Access Paper; an inspiring research initiative. 
+- Open Access Paper; an inspiring research initiative! 
 
 ## OpenMindat R Package
-
-- "An R package for querying and accessing open data from the Mindat API."
+#### "An R package for querying and accessing open data from the Mindat API."
 - Source: https://cran.r-project.org/web/packages/OpenMindat/index.html
-- R Programming Language
 - Author(s): Xiang Que [aut, cre], Xiaogang Ma [aut]
 - Allows access to the Mindat.org resources through the R programming language for data science activities. 
 - R Programming Language
@@ -18,9 +15,9 @@
 ## OpenMindat Python 
 
 - "This is a test version of the OpenMindat Python package, designed to facilitate querying and retrieving data on minerals and geomaterials from the Mindat API."
-- https://github.com/ChuBL/OpenMindat
+- https://github.com/ChuBL/OpenMindat and forks of
 - Python Programming Language
-- Author(s):
+- Author(s): Jiyin Zhang
 - https://github.com/ChuBL/OpenMindat/wiki
 
 ## Directly Accessing the Mindat.org server through OpenMindat's API
