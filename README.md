@@ -1,24 +1,29 @@
-# Important Links:
+# Handy Resources:
 
-**OpenMindat: Open and FAIR mineralogy data from the Mindat database** 
-https://rmets.onlinelibrary.wiley.com/doi/10.1002/gdj3.204
+## **OpenMindat: Open and FAIR mineralogy data from the Mindat database** 
 
-**Mindat API Documentation: 
-https://api.mindat.org/schema/redoc/**
+- Geoscience Data Journal Volume 11, Issue 1 p. 94-104
+- https://rmets.onlinelibrary.wiley.com/doi/10.1002/gdj3.204
+- Author(s): Xiaogang Ma, Jolyon Ralph, Jiyin Zhang, Xiang Que, Anirudh Prabhu, Shaunna M. Morrison, Robert M. Hazen, Lesley Wyborn, Kerstin Lehnert
 
-**A simple python example for the (alpha) version of the API. Requires an API key** 
-https://github.com/jolyonralph/mindat_api_test
+## **Mindat API Documentation YAML** 
 
-**mindat_api_test** 
+- 
+- https://api.mindat.org/schema/redoc/
+- 
+
+## **A simple python example for the (alpha) version of the API. Requires an API key** 
+- https://github.com/jolyonralph/mindat_api_test
+- Author(s): Jolyon Ralph
+
+## **mindat_api_test** 
+
 https://github.com/MrHamel/mindat_api_test
+- Author(s): Mr. Hamel (?)
 
 
+# What is this repository here?
 
-## What is this repository here?
-
-Loose bits of an httpx client for the OpenMindat API and an empty tkinter frame. 
+A colleciton of resources for folks interested in the topics above. Please create a pull request if you can correct, clairfy, or expand on the resources above. :)
 
 
-## Who is this repository by?
-
-A mineral enthusiast learning programming. 
